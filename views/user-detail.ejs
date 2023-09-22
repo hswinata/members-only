@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>User Detail</title>
+    <link rel="preload" href="/css/pages/user.css" as="style" />
+    <link rel="stylesheet" href="/css/pages/user.css" />
+    <link rel="preload" href="/css/style.css" as="style" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <!-- Include the header partial -->
+  <%- include('partials/header') %>
+  <body>
+    <div class="detailContainer">
+      <ul>
+        <li><span class="bold">Email: </span><%= user.username %></li>
+        <li><span class="bold">First Name:</span> <%= user.first_name %></li>
+        <li><span class="bold">Last Name:</span> <%= user.last_name %></li>
+        <li>
+          <span class="bold">Membership:</span>
+          <%= user.membership ? 'You are a MEMBER!' : 'You are not a member 😔'
+          %>
+        </li>
+      </ul>
+      <a href="/user/<%= user.id %>/edit"><button>EDIT USER</button></a>
+      <% if (!user.membership){%>
+      <a href="/user/<%= user.id %>/membership"
+        ><button id="memberButton">BE A MEMBER!</button></a
+      >
+      <%} %>
+    </div>
+    <hr />
+
+    <div id="messages">
+      <h1>Your messages:</h1>
+      <ul>
+        <% messages.forEach(message => { %>
+        <li class="message">
+          <div class="titleTextContainer">
+            <div class="title"><%= message.title %></div>
+            <div class="text"><%= message.text %></div>
+          </div>
+
+          <% if (user.isAdmin) { %>
+          <div class="authorTimeContainer">
+            <div class="author">
+              Author: <%= user.first_name %> <%= user.last_name %>
+            </div>
+            <div class="time">
+              <%= format(message.timestamp, "MMM d, yyy 'at' HH:mm ") %> CET
+            </div>
+          </div>
+          <% } else if (user.membership) { %>
+          <div class="authorTimeContainer">
+            <div class="author">
+              Author: <%= user.first_name %> <%= user.last_name %>
+            </div>
+            <div class="time">
+              <%= format(message.timestamp, "MMM d, yyy 'at' HH:mm ") %> CET
+            </div>
+          </div>
+          <% } %> <% if(user.isAdmin) { %>
+          <form action="/delete-message/<%= message.id %>" method="POST">
+            <button class="deleteButton" type="submit">DELETE</button>
+          </form>
+          <% } %>
+        </li>
+
+        <% }) %>
+      </ul>
+    </div>
+  </body>
+</html>

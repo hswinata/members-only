@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <link rel="preload" href="/css/pages/login.css" as="style" />
+    <link rel="stylesheet" href="/css/pages/login.css" />
+    <link rel="preload" href="/css/style.css" as="style" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <h1>Log In</h1>
+    <form action="/log-in" method="POST" id="login-form">
+      <label for="username">Email</label>
+      <input
+        name="username"
+        type="email"
+        autocomplete="off"
+        value="<%= username ? username : '' %>"
+      />
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" />
+
+      <div class="password-container">
+        <div class="togglePassword">
+          <input type="checkbox" id="showPasswordToggle" />
+          <label id="showPassword" for="showPasswordToggle">
+            Show password
+          </label>
+        </div>
+        <div id="error-overlay" class="<%= errorMessage ? 'active' : '' %>">
+          <div class="error-message"><%= errorMessage %></div>
+        </div>
+      </div>
+    </form>
+
+    <button type="submit" form="login-form" value="">LOG IN</button>
+    <a href="/sign-up"> <button href="/sign-up">SIGN UP</button></a>
+  </body>
+
+  <!-- Password toggle function -->
+  <script>
+    const passwordInput = document.getElementById("password");
+    const showPasswordCheckbox = document.getElementById("showPasswordToggle");
+    showPasswordCheckbox.addEventListener("change", () => {
+      passwordInput.type = showPasswordCheckbox.checked ? "text" : "password";
+    });
+  </script>
+</html>

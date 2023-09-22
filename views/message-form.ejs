@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>New Message</title>
+    <link rel="preload" href="/css/style.css" as="style" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="preload" href="/css/pages/message.css" as="style" />
+    <link rel="stylesheet" href="/css/pages/message.css" />
+  </head>
+  <!-- Include the header partial -->
+  <%- include('partials/header') %>
+  <body>
+    <h1>Write a new message!</h1>
+    <form action="" method="POST" autocomplete="off" id="message-form">
+      <label for="title">TITLE</label>
+      <input id="title" name="title" type="text" required />
+      <div class="message-container">
+        <label for="text">MESSAGE</label>
+        <div class="message-controls">
+          <span id="charCount"></span>
+          <span id="errorMessage"></span>
+        </div>
+      </div>
+      <textarea
+        id="text"
+        name="text"
+        type="text"
+        required
+        rows="5"
+        cols="50"
+        maxlength="200"
+        oninput="checkLength()"
+      ></textarea>
+    </form>
+    <button type="submit" form="message-form">SUBMIT MESSAGE</button>
+
+    <script>
+      function checkLength() {
+        const inputElement = document.getElementById("text");
+        const errorMessage = document.getElementById("errorMessage");
+        const inputText = inputElement.value;
+        const inputLength = inputText.length;
+        const currentLength = inputElement.value.length;
+
+        if (inputLength > 199) {
+          charCount.textContent = "";
+          inputElement.value = inputElement.value.slice(0, 200);
+          errorMessage.textContent = "Max 200!";
+          return false;
+        } else if (inputLength == 0) {
+          charCount.textContent = "";
+        } else {
+          charCount.textContent = inputLength;
+          errorMessage.textContent = "";
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Members Only Login</title>
+    <link rel="preload" href="/css/pages/home.css" as="style" />
+    <link rel="stylesheet" href="/css/pages/home.css" />
+    <link rel="preload" href="/css/style.css" as="style" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <!-- Include the header partial -->
+  <%- include('partials/header') %>
+  <body>
+    <h1>All Messages:</h1>
+    <ul>
+      <% messages.forEach(message => { %>
+      <li class="message">
+        <div class="titleTextContainer">
+          <div class="title"><%= message.title %></div>
+          <div class="text"><%= message.text %></div>
+        </div>
+
+        <% if (user.isAdmin) { %>
+        <div class="authorTimeContainer">
+          <div class="author">
+            Author: <%= message.user.first_name %> <%= message.user.last_name %>
+          </div>
+          <div class="time">
+            <%= format(message.timestamp, "MMM d, yyy 'at' HH:mm ") %> CET
+          </div>
+        </div>
+        <% } else if (user.membership) { %>
+        <div class="authorTimeContainer">
+          <div class="author">
+            Author: <%= message.user.first_name %> <%= message.user.last_name %>
+          </div>
+          <div class="time">
+            <%= format(message.timestamp, "MMM d, yyy 'at' HH:mm ") %> CET
+          </div>
+        </div>
+        <% } %> <% if(user.isAdmin) { %>
+        <form action="/delete-message/<%= message.id %>" method="POST">
+          <button class="deleteButton" type="submit">DELETE</button>
+        </form>
+        <% } %>
+      </li>
+      <% }) %>
+    </ul>
+  </body>
+  <script></script>
+</html>

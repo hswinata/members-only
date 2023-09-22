@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Become a Member</title>
+    <link rel="preload" href="/css/pages/membership.css" as="style" />
+    <link rel="stylesheet" href="/css/pages/membership.css" />
+    <link rel="preload" href="/css/style.css" as="style" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <!-- Include the header partial -->
+  <%- include('partials/header') %>
+    <body>
+      <main>
+      <h1>
+        Hello <%= user.first_name%>,<br />
+        Become a Member of our exclusive society! Don't need no money to
+        qualify!
+      </h1>
+      <form
+        action="/user/<%= userId %>/membership/update"
+        method="POST"
+        id="membership-form"
+      >
+        <input type="hidden" required />
+      </form>
+      <div class="bottom-container">
+        <button id="memberButton" type="submit" form="membership-form">
+          BECOME A MEMBER
+        </button>
+        <iframe
+          id="video"
+          src="https://www.youtube.com/embed/A_ns18S7gHM"
+        ></iframe>
+      </div>
+    </body>
+  </main>
+  <footer></footer>
+</html>

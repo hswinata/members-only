@@ -1,0 +1,26 @@
+.password-container {
+  display: flex;
+  position: relative;
+  max-width: 400px;
+}
+
+.togglePassword {
+  display: flex;
+}
+
+#showPassword {
+  font-size: 1rem;
+  margin-right: 8rem;
+}
+
+#error-overlay {
+  position: absolute;
+  right: 0px;
+  color: #c425ed;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

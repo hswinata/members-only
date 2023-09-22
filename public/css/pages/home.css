@@ -1,0 +1,75 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  list-style-type: none;
+  gap: 1rem;
+  position: relative;
+}
+
+li {
+  position: relative;
+  max-width: 80%;
+  /* line-height: 1.5; */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-size: 1rem;
+}
+
+.titleTextContainer {
+  border: 1px black solid;
+  padding: 1rem;
+  min-width: 400px;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.text {
+  font-size: 1rem;
+}
+
+.authorTimeContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+
+.author,
+.time {
+  font-size: 0.8rem;
+}
+
+.deleteButton:hover {
+  background-color: red;
+}
+
+#memberButton {
+  background-color: gold;
+  color: black;
+}
+
+#memberButton:hover {
+  cursor: pointer;
+  background-color: #c425ed;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.message {
+  margin-bottom: 1.5rem;
+  max-width: 50rem;
+  overflow: hidden;
+  word-wrap: break-word;
+}

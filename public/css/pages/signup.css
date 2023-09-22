@@ -1,0 +1,42 @@
+.toggleContainer,
+.togglePassword,
+.toggleAdmin {
+  display: flex;
+  justify-content: flex-start;
+}
+
+label {
+  min-width: 8rem;
+}
+
+#error-overlay {
+  margin-top: 1rem;
+  position: absolute;
+  color: #c425ed;
+}
+
+.signup-button {
+  align-self: flex-end;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-button {
+  align-self: center;
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

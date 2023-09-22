@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Edit User</title>
+    <link rel="preload" href="/css/pages/userEdit.css" as="style" />
+    <link rel="stylesheet" href="/css/pages/userEdit.css" />
+    <link rel="preload" href="/css/style.css" as="style" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <!-- Include the header partial -->
+  <%- include('partials/header') %>
+  <body>
+    <h1>User: <%= user._id %></h1>
+    <form action="" method="POST" autocomplete="off" id="editUserForm">
+      <label for="firstName">First Name</label>
+      <input
+        id="firstName"
+        name="first_name"
+        type="text"
+        value="<%=
+      user.first_name %>"
+        required
+      />
+
+      <label for="lastName">Last Name</label>
+      <input
+        id="lastName"
+        name="last_name"
+        type="text"
+        value="<%=
+      user.last_name %>"
+        required
+      />
+
+      <label for="username">Email Address</label>
+      <input
+        id="username"
+        name="username"
+        type="email"
+        value="<%=
+      user.username %>"
+        required
+      />
+    </form>
+    <button type="submit" form="editUserForm">EDIT</button>
+  </body>
+  <footer></footer>
+</html>

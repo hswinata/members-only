@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sign Up</title>
+    <link rel="preload" href="/css/style.css" as="style" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="preload" href="/css/pages/signup.css" as="style" />
+    <link rel="stylesheet" href="/css/pages/signup.css" />
+  </head>
+  <body>
+    <h1>Sign Up</h1>
+    <form action="" method="POST" autocomplete="off" id="signup-form">
+      <label for="firstName">First Name</label>
+      <input id="firstName" name="first_name" type="text" required />
+
+      <label for="lastName">Last Name</label>
+      <input id="lastName" name="last_name" type="text" required />
+
+      <label for="username">Email Address</label>
+      <input id="username" name="username" type="email" required />
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" required />
+
+      <div class="toggleContainer">
+        <div class="togglePassword">
+          <input type="checkbox" id="show-password" />
+          <label for="show-password">Show password</label>
+        </div>
+
+        <div class="toggleAdmin">
+          <input id="isAdmin" name="isAdmin" type="checkbox" />
+          <label for="isAdmin">Is Admin</label>
+        </div>
+      </div>
+
+      <input
+        id="membership"
+        name="membership"
+        type="hidden"
+        value="false"
+        required
+      />
+
+      <button class="signup-button" form="signup-form">SIGN UP</button>
+    </form>
+
+    <div class="error-container">
+      <div id="error-overlay" class="<%= errors ? 'active' : '' %>">
+        <% if (errors && errors.length > 0) { %>
+        <div class="error-message"><%= errors[0].msg %></div>
+        <% } %>
+      </div>
+    </div>
+
+    <!-- Password toggle function -->
+    <script>
+      const passwordInput = document.getElementById("password");
+      const showPasswordCheckbox = document.getElementById("show-password");
+      showPasswordCheckbox.addEventListener("change", () => {
+        passwordInput.type = showPasswordCheckbox.checked ? "text" : "password";
+      });
+
+      const adminInput = document.getElementById("isAdmin");
+      adminInput.addEventListener("change", () => {
+        if (adminInput.checked) {
+          const sekretKey = prompt("Type in the sekret key!");
+          if (sekretKey === null) {
+            adminInput.checked = false;
+          } else if (sekretKey !== "springrull") {
+            adminInput.checked = false;
+            alert("You entered a wrong sekret key.");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
