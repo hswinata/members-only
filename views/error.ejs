@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Error</title>
+    <title><%= error.status %> Error</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/pages/error.css" />
   </head>
   <body>
-    <h1><%= message %></h1>
-    <h2><%= error.status %></h2>
-    <pre><%= error.stack %></pre>
+    <h1><%= error.status %> Page not found!</h1>
+    <a href="/"><button class="large-button">ESCAPE!</button></a>
   </body>
 </html>
