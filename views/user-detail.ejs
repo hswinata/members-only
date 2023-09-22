@@ -12,6 +12,7 @@
   <%- include('partials/header') %>
   <body>
     <div class="detailContainer">
+      <h1>Hello <%= user.first_name %>!</h1>
       <ul>
         <li><span class="bold">Email: </span><%= user.username %></li>
         <li><span class="bold">First Name:</span> <%= user.first_name %></li>
@@ -22,10 +23,12 @@
           %>
         </li>
       </ul>
-      <a href="/user/<%= user.id %>/edit"><button>EDIT USER</button></a>
+      <a href="/user/<%= user.id %>/edit"
+        ><button class="large-button">EDIT USER</button></a
+      >
       <% if (!user.membership){%>
       <a href="/user/<%= user.id %>/membership"
-        ><button id="memberButton">BE A MEMBER!</button></a
+        ><button class="large-button" id="memberButton">BE A MEMBER!</button></a
       >
       <%} %>
     </div>
@@ -43,9 +46,6 @@
 
           <% if (user.isAdmin) { %>
           <div class="authorTimeContainer">
-            <div class="author">
-              Author: <%= user.first_name %> <%= user.last_name %>
-            </div>
             <div class="time">
               <%= format(message.timestamp, "MMM d, yyy 'at' HH:mm ") %> CET
             </div>

@@ -135,3 +135,19 @@ li {
   margin-bottom: 0.5rem;
   font-size: 1.5rem;
 }
+
+.large-button {
+  background-color: black;
+  color: white;
+  font-size: 1.3rem;
+  width: 15rem;
+  padding: 0.8rem;
+  border-radius: 1%;
+  margin-top: 1rem;
+  border: none;
+}
+
+hr {
+  border-color: black;
+  width: 50%;
+}
