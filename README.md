@@ -1,23 +1,24 @@
 # members-only
 
-I created this CRUD project to showcase my sessions, authentication, authorization, security, and database skills that I recently acquired from a Bootcamp.
+I developed the CRUD project "Members-Only" as a pivotal showcase of my skills in sessions, authentication, authorization, security, and database management. This project marks a significant milestone in my journey, as it reflects the knowledge I acquired during my later stages in a bootcamp, with a strong emphasis on the backend, server, and database aspects.
+
 
 ## Features
 
-1. Creating Messages:
-   - Users can sign up and create messages that include a title, timestamp, and text.
+1. Message Creation:
+   - Users are empowered to sign up and create messages complete with a title, timestamp, and content.
 2. Password Security:
-   - To enhance security, user passwords are hashed using bcrypt with 10 salt rounds.
-3. Admin Privileges:
-   - During sign-up, users can become administrators by using the secret keyword "springrull."
-   - Admins have the following permissions: CREATE, READ, and DELETE messages.
-   - No one, including admins, can UPDATE messages.
-4. Normal User Access:
-   - Normal users can read messages on the message board.
-   - Message author and timestamp details are hidden by default.
-   - To access message author and timestamp, users can opt to become exclusive members.
-5. User Profile Updates:
-   - All users, regardless of their role, have the ability to update their user profiles.
+   - To bolster security, user passwords undergo hashing using bcrypt with 10 salt rounds, ensuring sensitive data remains protected.
+4. Admin Privileges:
+   - During the registration process, users have the unique opportunity to gain administrative privileges by employing the secret keyword "springrull."
+   - Admins possess comprehensive permissions, including CREATE, READ, and DELETE actions for messages.
+   - However, regardless of their role, no one has the authority to UPDATE messages.
+6. Normal User Access:
+   - Normal users have access to the message board, allowing them to read posted messages.
+   - By default, message author and timestamp details remain concealed.
+   - For an enhanced experience, users can choose to become exclusive members, gaining access to message author and timestamp information.
+8. User Profile Updates:
+   - Every user, regardless of their role, retains the ability to update their user profiles.
 
 ## Technologies
 
